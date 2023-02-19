@@ -17,27 +17,30 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-const db = require("./models");
+// const db = require("./models");
 
-db.sequelize.sync()
-    .then(() => {
-        console.log("Synced db.");
-    })
-    .catch((err) => {
-        console.log("Failed to sync db: " + err.message);
-    });
+// db.sequelize.sync()
+//     .then(() => {
+//         console.log("Synced db.");
+//     })
+//     .catch((err) => {
+//         console.log("Failed to sync db: " + err.message);
+//     });
 
-// // drop the table if it already exists
+// drop the table if it already exists
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
 // });
 
+const mailer = require('./helper/mailer')
 // simple route
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+app.get("", async (req, res) => {
+    res.status(200).json({ message: "Welcome to my application." });
 });
 
-require("./routes/tutorial.route")(app);
+require("./routes")(app);
+require("./task-schedule")();
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "nodejs",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "staging": {
+    "username": "root",
+    "password": "123456",
+    "database": "nodejs",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "nodejs",
+    "host": "mysql",
+    "dialect": "mysql"
+  }
+}
