@@ -1,4 +1,13 @@
 module.exports = (app) => {
+    const verifyToken = (req, res, next) => {
+        if (false) {
+            res.send({
+                status_code: 401,
+                message: "Invalid account."
+            });
+        }
+        next()
+    };
     const tutorials = require("../controllers/user.controller.js");
 
     var router = require("express").Router();

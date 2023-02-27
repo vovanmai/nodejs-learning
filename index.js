@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 var dotenv = require('dotenv');
 dotenv.config();
+var bcrypt = require("bcryptjs");
+console.log(bcrypt.hashSync('secret', 8))
 
 const app = express();
 
@@ -17,7 +19,6 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// const db = require("./models");
 
 // db.sequelize.sync()
 //     .then(() => {
@@ -34,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const mailer = require('./helper/mailer')
 // simple route
-app.get("", async (req, res) => {
+app.get("", (req, res) => {
     res.status(200).json({ message: "Welcome to my application." });
 });
 

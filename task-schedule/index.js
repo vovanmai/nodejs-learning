@@ -14,9 +14,8 @@ const htmlToSend = template({
 module.exports = () => {
     schedule.scheduleJob('* * * * * *', async function() {
         try {
-            console.log(htmlToSend)
             // await mailer.sendMail('mai.vv@neo-lab.vn', 'hehee', htmlToSend)
-            console.log('send mail success')
+            // console.log('send mail success')
         } catch (error) {
             console.log(error)
         }

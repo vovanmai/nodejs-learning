@@ -36,22 +36,26 @@ exports.create = async (req, res) => {
 };
 
 // Retrieve all Users from the database.
-exports.findAll = async (req, res) => {
-    console.log('list user')
-    try {
-        const data = await User.findAll();
+exports.findAll = (req, res) => {
         res.send({
             status_code: 200,
             message: "Success",
-            data: data
+            data: 2
         });
-    } catch (e) {
-        res.status(500).send({
-            status_code: 500,
-            message: e.message || "Error",
-            errors: []
-        });
-    }
+    // try {
+    //     const data = await User.findAll();
+    //     res.send({
+    //         status_code: 200,
+    //         message: "Success",
+    //         data: data
+    //     });
+    // } catch (e) {
+    //     res.status(500).send({
+    //         status_code: 500,
+    //         message: e.message || "Error",
+    //         errors: []
+    //     });
+    // }
 };
 
 // Find a single User with an id
