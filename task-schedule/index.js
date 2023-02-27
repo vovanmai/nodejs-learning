@@ -1,10 +1,21 @@
 const schedule = require('node-schedule');
 const mailer = require('../helper/mailer')
+const fs = require("fs")
+const handlebars = require("handlebars")
+
+const emailTemplateSource = fs.readFileSync("resources/email/template.hbs", "utf8")
+const template = handlebars.compile(emailTemplateSource)
+const htmlToSend = template({
+    message: "Hello World!",
+    hehe: "HEHE",
+})
+
 
 module.exports = () => {
-    schedule.scheduleJob('*/20 * * * * *', async function(){
+    schedule.scheduleJob('* * * * * *', async function() {
         try {
-            // await mailer.sendMail('mai.vv@neo-lab.vn', 'Chào bạn chúc bạn một ngày vui vẻ!', "<h1>Chào bạn chúc bạn một ngày vui vẻ!</h1>")
+            console.log(htmlToSend)
+            // await mailer.sendMail('mai.vv@neo-lab.vn', 'hehee', htmlToSend)
             console.log('send mail success')
         } catch (error) {
             console.log(error)
