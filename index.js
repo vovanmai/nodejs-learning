@@ -33,18 +33,19 @@ app.use(express.urlencoded({ extended: true }));
 //   console.log("Drop and re-sync db.");
 // });
 
-const mailer = require('./helper/mailer')
+// const mailer = require('./helper/mailer')
 // simple route
 app.get("", (req, res) => {
     res.status(200).json({ message: "Welcome to my application." });
 });
 
 require("./routes")(app);
-require("./task-schedule")();
+// require("./task-schedule")();
 
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 8080;
+const PORT = 3004;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
